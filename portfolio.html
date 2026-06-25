@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stephen Kinyanjui — AI Data Specialist</title>
+<meta name="description" content="Portfolio of Stephen Kinyanjui, AI Data Specialist, Data Annotation Expert, and Quality Assurance professional based in Nairobi, Kenya." />
+<style>
+:root{
+  --bg:#0b1117;
+  --bg-2:#0f1620;
+  --card:#131c27;
+  --card-2:#172131;
+  --border:#1f2b3a;
+  --text:#e6edf3;
+  --muted:#9aa7b4;
+  --accent:#1A5276;
+  --accent-2:#2e86c1;
+  --accent-glow:rgba(46,134,193,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+/* Navbar */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(11,17,23,.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:all .3s ease;
+}
+.navbar.scrolled{border-bottom-color:var(--border);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.nav-container{
+  max-width:1200px;margin:0 auto;padding:1rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.logo{font-size:1.3rem;font-weight:700;color:var(--text)}
+.logo span{color:var(--accent-2)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);font-size:.95rem;font-weight:500;transition:color .2s;position:relative}
+.nav-links a:hover{color:var(--text)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent-2);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{width:25px;height:2px;background:var(--text);transition:.3s}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:6rem 2rem 3rem;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(26,82,118,.25), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(46,134,193,.18), transparent 55%),
+    var(--bg);
+  text-align:center;position:relative;
+}
+.hero-content{max-width:900px;animation:fadeUp 1s ease both}
+.hero-greet{color:var(--accent-2);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.9rem;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#9ec8e0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.typed-wrap{font-size:clamp(1.1rem,2.5vw,1.6rem);color:var(--muted);min-height:2.2em;margin-bottom:1.5rem}
+.typed{color:var(--accent-2);font-weight:600}
+.cursor{display:inline-block;width:2px;background:var(--accent-2);margin-left:2px;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;color:var(--muted);font-size:.95rem;margin-bottom:2rem}
+.hero-meta span{display:inline-flex;align-items:center;gap:.4rem}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.8rem;border-radius:8px;font-weight:600;font-size:.95rem;
+  transition:all .25s ease;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 20px var(--accent-glow)}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 8px 25px var(--accent-glow)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2)}
+
+/* Sections */
+section{padding:6rem 2rem;max-width:1200px;margin:0 auto}
+.section-title{
+  font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:.5rem;text-align:center;
+}
+.section-sub{text-align:center;color:var(--muted);margin-bottom:3rem;font-size:1rem}
+.section-sub::after{content:"";display:block;width:60px;height:3px;background:var(--accent-2);margin:1rem auto 0;border-radius:2px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center}
+.about-card{
+  background:linear-gradient(135deg,var(--card),var(--card-2));
+  border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;
+}
+.avatar{
+  width:140px;height:140px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:700;color:#fff;
+  margin:0 auto 1rem;box-shadow:0 10px 30px var(--accent-glow);
+}
+.about-card h3{font-size:1.2rem;margin-bottom:.25rem}
+.about-card p{color:var(--muted);font-size:.9rem}
+.about-text p{color:var(--muted);font-size:1.05rem;margin-bottom:1rem}
+.about-text strong{color:var(--text)}
+.quick-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1.5rem}
+.fact{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
+.fact-num{font-size:1.5rem;font-weight:700;color:var(--accent-2)}
+.fact-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.skill{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:1.25rem;transition:transform .25s, border-color .25s;
+}
+.skill:hover{transform:translateY(-4px);border-color:var(--accent-2)}
+.skill-head{display:flex;justify-content:space-between;margin-bottom:.6rem;font-weight:600}
+.skill-head span:last-child{color:var(--accent-2)}
+.bar{height:8px;background:var(--bg-2);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:4px;transition:width 1.5s ease}
+
+/* Timeline */
+.timeline{position:relative;max-width:850px;margin:0 auto;padding-left:2rem}
+.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.t-item{position:relative;margin-bottom:2.5rem}
+.t-item::before{
+  content:"";position:absolute;left:-1.8rem;top:.4rem;width:18px;height:18px;border-radius:50%;
+  background:var(--accent-2);box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--accent);
+}
+.t-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .3s}
+.t-card:hover{border-color:var(--accent-2)}
+.t-date{display:inline-block;font-size:.8rem;background:rgba(46,134,193,.15);color:var(--accent-2);padding:.25rem .7rem;border-radius:20px;margin-bottom:.5rem;font-weight:600}
+.t-title{font-size:1.15rem;font-weight:700;margin-bottom:.25rem}
+.t-company{color:var(--accent-2);font-size:.95rem;margin-bottom:.75rem}
+.t-card ul{padding-left:1.2rem;color:var(--muted);font-size:.95rem}
+.t-card li{margin-bottom:.4rem}
+
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.project{
+  background:linear-gradient(135deg,var(--card),var(--card-2));
+  border:1px solid var(--border);border-radius:14px;padding:1.75rem;
+  position:relative;overflow:hidden;transition:transform .3s, border-color .3s;
+}
+.project::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.project:hover{transform:translateY(-6px);border-color:var(--accent-2)}
+.project:hover::before{transform:scaleX(1)}
+.p-icon{width:44px;height:44px;border-radius:10px;background:rgba(46,134,193,.15);display:flex;align-items:center;justify-content:center;color:var(--accent-2);font-size:1.3rem;font-weight:700;margin-bottom:1rem}
+.project h3{margin-bottom:.5rem}
+.project p{color:var(--muted);font-size:.95rem;margin-bottom:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{background:var(--bg-2);color:var(--muted);font-size:.75rem;padding:.25rem .6rem;border-radius:20px;border:1px solid var(--border)}
+
+/* Languages */
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+.lang{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:transform .25s, border-color .25s}
+.lang:hover{transform:translateY(-4px);border-color:var(--accent-2)}
+.lang h3{margin-bottom:.25rem;font-size:1.2rem}
+.lang-level{color:var(--accent-2);font-size:.9rem;font-weight:600;margin-bottom:1rem}
+.dots{display:flex;justify-content:center;gap:.4rem}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--bg-2);border:1px solid var(--border)}
+.dot.on{background:var(--accent-2);border-color:var(--accent-2);box-shadow:0 0 8px var(--accent-glow)}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:900px;margin:0 auto}
+.contact-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;text-align:center;
+  transition:transform .25s, border-color .25s;
+}
+.contact-card:hover{transform:translateY(-4px);border-color:var(--accent-2)}
+.c-icon{width:50px;height:50px;border-radius:50%;background:rgba(46,134,193,.15);color:var(--accent-2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 1rem}
+.contact-card h4{margin-bottom:.4rem;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.contact-card a{color:var(--text);font-weight:600;word-break:break-word}
+.contact-card a:hover{color:var(--accent-2)}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--border);padding:2rem;text-align:center;
+  color:var(--muted);font-size:.9rem;background:var(--bg-2);
+}
+footer span{color:var(--accent-2)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* Mobile */
+@media (max-width:820px){
+  .nav-links{
+    position:fixed;top:64px;right:-100%;flex-direction:column;
+    background:var(--bg-2);width:75%;height:calc(100vh - 64px);padding:2rem;gap:1.5rem;
+    transition:right .3s ease;border-left:1px solid var(--border);
+  }
+  .nav-links.open{right:0}
+  .hamburger{display:flex}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .about-grid{grid-template-columns:1fr}
+  section{padding:4rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="logo">Stephen<span>.</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-greet">Hello, I'm</p>
+    <h1>Stephen Kinyanjui</h1>
+    <div class="typed-wrap">
+      <span class="typed" id="typed"></span><span class="cursor">&nbsp;</span>
+    </div>
+    <div class="hero-meta">
+      <span>📍 Nairobi, Kenya</span>
+      <span>✉ Kinyanjuindungu6174@gmail.com</span>
+      <span>📞 +254 792 013 351</span>
+    </div>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#projects" class="btn btn-ghost">View Projects</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="reveal">
+  <h2 class="section-title">About Me</h2>
+  <p class="section-sub">A brief introduction</p>
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="avatar">SK</div>
+      <h3>Stephen Kinyanjui</h3>
+      <p>AI Data Specialist</p>
+    </div>
+    <div class="about-text">
+      <p>I'm an <strong>AI Data Specialist</strong> with hands-on experience in data annotation, AI response evaluation, and quality assurance for machine learning pipelines. I help teams ship better AI products by producing clean, accurate, and well-structured training data.</p>
+      <p>With a background in Information Technology from Dedan Kimathi University, and multilingual fluency in <strong>Oromo, English, and Swahili</strong>, I bring both technical rigor and cultural breadth to large-scale AI projects.</p>
+      <div class="quick-facts">
+        <div class="fact"><div class="fact-num">12K+</div><div class="fact-label">Responses Evaluated</div></div>
+        <div class="fact"><div class="fact-num">3+</div><div class="fact-label">Years Experience</div></div>
+        <div class="fact"><div class="fact-num">3</div><div class="fact-label">Languages</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <h2 class="section-title">Skills</h2>
+  <p class="section-sub">Tools and expertise I work with</p>
+  <div class="skills-grid" id="skillsGrid">
+    <!-- generated -->
+  </div>
+</section>
+
+<section id="experience" class="reveal">
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">My professional journey</p>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-card">
+        <span class="t-date">Jan 2025 — Present</span>
+        <div class="t-title">AI Data Annotator</div>
+        <div class="t-company">Freelance · Remote</div>
+        <ul>
+          <li>Annotate and label multilingual datasets for large language model training.</li>
+          <li>Perform pairwise comparisons and prompt assessments for response quality.</li>
+          <li>Maintain consistent quality across complex labeling guidelines.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-card">
+        <span class="t-date">Jun — Dec 2024</span>
+        <div class="t-title">AI Content Evaluation Specialist</div>
+        <div class="t-company">Remote Contract</div>
+        <ul>
+          <li>Evaluated AI-generated content using structured rating frameworks.</li>
+          <li>Identified hallucinations, bias, and tone issues across thousands of outputs.</li>
+          <li>Contributed feedback that improved model fine-tuning iterations.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-card">
+        <span class="t-date">Jan — May 2024</span>
+        <div class="t-title">Data Annotation & QA Assistant</div>
+        <div class="t-company">Remote Freelance</div>
+        <ul>
+          <li>Performed data validation and quality checks on annotated datasets.</li>
+          <li>Supported NLP teams with content moderation and tagging workflows.</li>
+          <li>Worked across Excel and Google Sheets to track QA metrics.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-card">
+        <span class="t-date">2020 — 2024</span>
+        <div class="t-title">BSc Information Technology</div>
+        <div class="t-company">Dedan Kimathi University of Technology (DeKUT)</div>
+        <ul>
+          <li>Coursework in databases, software engineering, networks, and data analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <h2 class="section-title">Projects</h2>
+  <p class="section-sub">Selected work</p>
+  <div class="projects-grid">
+    <div class="project">
+      <div class="p-icon">AI</div>
+      <h3>AI Response Evaluation Project</h3>
+      <p>Evaluated 12,000+ AI-generated responses using structured rating frameworks — assessing helpfulness, accuracy, tone, and safety to support model fine-tuning.</p>
+      <div class="tags">
+        <span class="tag">Evaluation</span><span class="tag">Pairwise</span><span class="tag">QA</span><span class="tag">LLM</span>
+      </div>
+    </div>
+    <div class="project">
+      <div class="p-icon">ML</div>
+      <h3>Multilingual Data Annotation</h3>
+      <p>Annotated and validated Oromo, Swahili, and English datasets for NLP and ML applications — improving low-resource language coverage in training data.</p>
+      <div class="tags">
+        <span class="tag">NLP</span><span class="tag">Annotation</span><span class="tag">Oromo</span><span class="tag">Swahili</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="languages" class="reveal">
+  <h2 class="section-title">Languages</h2>
+  <p class="section-sub">Proficiency levels</p>
+  <div class="lang-grid">
+    <div class="lang">
+      <h3>Oromo</h3>
+      <div class="lang-level">Native</div>
+      <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+    </div>
+    <div class="lang">
+      <h3>English</h3>
+      <div class="lang-level">Fluent</div>
+      <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+    </div>
+    <div class="lang">
+      <h3>Swahili</h3>
+      <div class="lang-level">Fluent</div>
+      <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <h2 class="section-title">Get In Touch</h2>
+  <p class="section-sub">Open to remote roles and collaboration</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="c-icon">✉</div>
+      <h4>Email</h4>
+      <a href="mailto:Kinyanjuindungu6174@gmail.com">Kinyanjuindungu6174@gmail.com</a>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">📞</div>
+      <h4>Phone</h4>
+      <a href="tel:+254792013351">+254 792 013 351</a>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">in</div>
+      <h4>LinkedIn</h4>
+      <a href="https://linkedin.com/in/stephen-kinyanjui" target="_blank" rel="noopener">linkedin.com/in/stephen-kinyanjui</a>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">📍</div>
+      <h4>Location</h4>
+      <a>Nairobi, Kenya</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> <span>Stephen Kinyanjui</span>. All rights reserved.
+</footer>
+
+<script>
+// Typing effect
+const phrases = [
+  "AI Data Specialist",
+  "Data Annotation Expert",
+  "Quality Assurance Professional",
+  "AI Response Evaluator"
+];
+const typedEl = document.getElementById('typed');
+let pi = 0, ci = 0, deleting = false;
+function tick(){
+  const word = phrases[pi];
+  typedEl.textContent = word.substring(0, ci);
+  if(!deleting && ci < word.length){ ci++; setTimeout(tick, 90); }
+  else if(deleting && ci > 0){ ci--; setTimeout(tick, 45); }
+  else {
+    if(!deleting){ deleting = true; setTimeout(tick, 1500); }
+    else { deleting = false; pi = (pi+1) % phrases.length; setTimeout(tick, 300); }
+  }
+}
+tick();
+
+// Navbar
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('open');
+}));
+
+// Skills
+const skills = [
+  ["AI Data Annotation", 95],
+  ["Data Labeling & Tagging", 93],
+  ["AI Response Evaluation", 92],
+  ["Prompt Assessment", 90],
+  ["Pairwise Comparison", 88],
+  ["Quality Assurance", 92],
+  ["Content Moderation", 87],
+  ["NLP Support", 85],
+  ["Data Validation", 90],
+  ["ML Data Preparation", 88],
+  ["Microsoft Excel", 90],
+  ["Google Sheets", 92],
+  ["Research & Analysis", 88]
+];
+const sg = document.getElementById('skillsGrid');
+skills.forEach(([name, val]) => {
+  const el = document.createElement('div');
+  el.className = 'skill';
+  el.innerHTML = `
+    <div class="skill-head"><span>${name}</span><span>${val}%</span></div>
+    <div class="bar"><div class="bar-fill" data-val="${val}"></div></div>`;
+  sg.appendChild(el);
+});
+
+// Reveal on scroll + animate bars
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.bar-fill').forEach(b => b.style.width = b.dataset.val + '%');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:0.15});
+document.querySelectorAll('.reveal').forEach(s => io.observe(s));
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
