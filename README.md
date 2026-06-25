@@ -1,36 +1,36 @@
 # Stephen Kinyanjui — Portfolio
 
-Personal portfolio website for Stephen Kinyanjui, AI Data Specialist and Data Annotation Expert based in Nairobi, Kenya.
+A personal portfolio website for **Stephen Kinyanjui**, AI Data Specialist based in Nairobi, Kenya.
 
-## About
+## 🔗 Live Site
 
-This site showcases my skills, experience, and projects in AI data annotation, quality assurance, and multilingual data work.
+[https://kinyanjui12.github.io/portfolio](https://kinyanjui12.github.io/portfolio)
 
-## Contents
+## 👤 About
 
-- About Me
-- Skills
-- Work Experience
-- Projects
-- Languages
-- Contact
+This portfolio showcases my skills, experience, and projects in AI data annotation, quality assurance, and multilingual NLP work.
 
-## Tech Stack
+## 📌 Sections
+
+- **About** — Background and quick facts
+- **Skills** — Core technical competencies
+- **Experience** — Professional timeline
+- **Projects** — Key AI annotation and evaluation projects
+- **Languages** — Oromo (Native), English (Fluent), Swahili (Fluent)
+- **Contact** — How to reach me
+
+## 🛠 Built With
 
 - HTML5
 - CSS3
-- JavaScript
+- Vanilla JavaScript
 
-## Live Site
+## 📬 Contact
 
-[View Portfolio](https://kinyanjui.github.io/stephen-kinyanjui)
+- 📧 Kinyanjuindungu6174@gmail.com
+- 📞 +254 792 013 351
+- 🔗 [LinkedIn](https://linkedin.com/in/stephen-kinyanjui)
 
-## Contact
-
-- Email: Kinyanjuindungu6174@gmail.com
-- Phone: +254 792 013 351
-- Location: Nairobi, Kenya
-
-## License
+---
 
 © 2026 Stephen Kinyanjui. All rights reserved.
